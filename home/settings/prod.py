@@ -4,15 +4,17 @@ from .base import *
 import dj_database_url
 
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS += ['django-react-ecommerce-app.herokuapp.com']
+ALLOWED_HOSTS += [
+    '*'
+]
 WSGI_APPLICATION = 'home.wsgi.prod.application'
 SECRET_KEY= config('SECRET_KEY')
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -27,7 +29,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
