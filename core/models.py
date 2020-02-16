@@ -35,14 +35,14 @@ class UserProfile(models.Model):
 
 
 class Item(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=250)
     price = models.FloatField(blank=True, null=True)
     discount_price = models.FloatField(blank=True, null=True)
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    label = models.CharField(choices=LABEL_CHOICES, max_length=1, null=True, blank=True)
-    slug = models.SlugField(null=True, blank=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=250)
+    label = models.CharField(choices=LABEL_CHOICES, max_length=250, null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, max_length=500)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(max_length=500)
 
     def __str__(self):
         return self.title
@@ -65,7 +65,7 @@ class Item(models.Model):
 
 class Variation(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)  # size
+    name = models.CharField(max_length=250)  # size
 
     class Meta:
         unique_together = (
@@ -78,8 +78,8 @@ class Variation(models.Model):
 
 class ItemVariation(models.Model):
     variation = models.ForeignKey(Variation, on_delete=models.CASCADE)
-    value = models.CharField(max_length=50)  # S, M, L
-    attachment = models.ImageField(blank=True)
+    value = models.CharField(max_length=250)  # S, M, L
+    attachment = models.ImageField(blank=True, max_length=500)
 
     class Meta:
         unique_together = (

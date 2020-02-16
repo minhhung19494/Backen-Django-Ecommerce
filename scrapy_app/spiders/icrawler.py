@@ -7,21 +7,21 @@ from scrapy.loader.processors import Join, MapCompose, TakeFirst
 from scrapy_app.items import Product, ProductVariations
 from scrapy.crawler import CrawlerProcess
 
-class ProductCrawler(CrawlSpider):
+class ProductCrawler(scrapy.Spider):
     name = 'icrawler'
     # allowed_domains = ['https://bitis.com.vn/']
-    # start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
+    start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
 
-    def __init__(self, *args, **kwargs):
-        # self.url = kwargs.get('url')
-        # self.domain = kwargs.get('domain')
-        self.start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
-        # self.allowed_domains = [self.domain]
+    # def __init__(self, *args, **kwargs):
+    #     # self.url = kwargs.get('url')
+    #     # self.domain = kwargs.get('domain')
+    #     self.start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
+    #     # self.allowed_domains = [self.domain]
 
-        ProductCrawler.rules = [
-            Rule(LinkExtractor(unique=True), callback='parse'),
-        ]
-        super(ProductCrawler, self).__init__(*args, **kwargs)
+    #     ProductCrawler.rules = [
+    #         Rule(LinkExtractor(unique=True), callback='parse'),
+    #     ]
+    #     super(ProductCrawler, self).__init__(*args, **kwargs)
 
     def parse(self, response):
 
