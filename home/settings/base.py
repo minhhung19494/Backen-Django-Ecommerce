@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'storages', #S3 storage
     'core',
-    'crawlItem',
+    'scrapy_app',
 ]
 
 MIDDLEWARE = [
