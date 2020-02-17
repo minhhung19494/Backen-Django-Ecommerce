@@ -13,6 +13,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
+from rest_framework.pagination import LimitOffsetPagination
 from core.models import Item, OrderItem, Order
 from .serializers import (
     ItemSerializer, OrderSerializer, ItemDetailSerializer, AddressSerializer,
@@ -35,6 +36,7 @@ class ItemListView(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+    pagination_class = LimitOffsetPagination
 
 
 class ItemDetailView(RetrieveAPIView):
