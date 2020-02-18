@@ -4,7 +4,7 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Join, MapCompose, TakeFirst
-from scrapy_app.items import Product, ProductVariations
+from scrapy_app.items import Product, ProductVariations, ProductDescription
 from scrapy.crawler import CrawlerProcess
 
 class ProductCrawler(scrapy.Spider):
@@ -25,15 +25,21 @@ class ProductCrawler(scrapy.Spider):
 
     def parse(self, response):
 
-        productLoader = ItemLoader(item = Product(), response = response)
-        yield self.startProductLoader(response, productLoader)
+        yield self.startProductLoader(response)
 
         detailPages = response.css('h3.product_name a::attr(href)').getall()
-        for page in detailPages:
+        for page in detailPages: 
             yield scrapy.Request(
                 response.urljoin(page),
                 callback= self.parseDetailPage
-        )
+            )
+
+        # detailPages2 = response.css('h3.product_name a::attr(href)').getall()
+        # for page2 in detailPages2[2:3]: 
+        #     yield scrapy.Request(
+        #         response.urljoin(page2),
+        #         callback= self.parseDescription
+        #     ) 
 
         next_page = response.css('div#pagination a.next::attr(href)').get()
         if next_page is not None:
@@ -43,7 +49,7 @@ class ProductCrawler(scrapy.Spider):
                 callback=self.parse
             )
 
-    def startProductLoader(self, response, productLoader):
+    def startProductLoader(self, response):#, productLoader):
 
         productLoader = ItemLoader(item = Product(), response = response)
 
@@ -54,8 +60,8 @@ class ProductCrawler(scrapy.Spider):
         productLoader.add_css('slug', 'h3.product_name a::attr(href)')
         productLoader.add_value('label', 'primary')
         productLoader.add_value('description', '')
-        
-        return productLoader.load_item() 
+        return productLoader.load_item()
+
     
     def parseDetailPage(self,response):
         filterVariation = response.css('div.swatch::attr(data-option-index)').getall()
@@ -68,7 +74,16 @@ class ProductCrawler(scrapy.Spider):
 
         variationLoader.add_css('itemName', 'div.product-info h1.name')
         variationLoader.add_css('variation',f'div.swatch[data-option-index = "{filter}"] label.header')
-        variationLoader.add_css('value', f'div.swatch[data-option-index = "{filter}"] span::attr(data-value)')
+        variationLoader.add_css('value', f'div.swatch[data-option-index = "{filter}"] span')
         variationLoader.add_css('image_urls', f'div.swatch[data-option-index = "{filter}"] span img::attr(src)')
+        variationLoader.add_css('description','div.product-description-wrapper')
 
         return variationLoader.load_item()
+    def parseDescription(self, response):
+        descriptionLoader = ItemLoader(item = ProductDescription(), response = response)
+
+        descriptionLoader.add_css('itemName', 'div.product-info h1.name')
+        descriptionLoader.add_css('description', 'div.product-description-wrapper p')
+
+        return descriptionLoader.load_item()
+
