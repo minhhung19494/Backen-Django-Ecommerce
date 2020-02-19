@@ -1,0 +1,76 @@
+2020-02-16 09:35:57 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: scrapy_app)
+2020-02-16 09:35:57 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 27 2019, 15:43:29) - [GCC 9.2.1 20191022], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Linux-5.3.0-kali2-amd64-x86_64-with-debian-kali-rolling
+2020-02-16 09:35:57 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrapy_app', 'IMAGES_STORE_S3_ACL': 'public-read', 'LOG_FILE': 'logs/default/icrawler/b81dc89e509f11eabc3889fb27362fa6.log', 'NEWSPIDER_MODULE': 'scrapy_app.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['scrapy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'}
+2020-02-16 09:35:57 [scrapy.extensions.telnet] INFO: Telnet Password: 22b009d742ecd6cd
+2020-02-16 09:35:57 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-02-16 09:35:57 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-02-16 09:35:57 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from creating-client-class.iot-data to creating-client-class.iot-data-plane
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from before-call.apigateway to before-call.api-gateway
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from request-created.machinelearning.Predict to request-created.machine-learning.Predict
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from before-parameter-build.autoscaling.CreateLaunchConfiguration to before-parameter-build.auto-scaling.CreateLaunchConfiguration
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from before-parameter-build.route53 to before-parameter-build.route-53
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from request-created.cloudsearchdomain.Search to request-created.cloudsearch-domain.Search
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from docs.*.autoscaling.CreateLaunchConfiguration.complete-section to docs.*.auto-scaling.CreateLaunchConfiguration.complete-section
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from before-parameter-build.logs.CreateExportTask to before-parameter-build.cloudwatch-logs.CreateExportTask
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from docs.*.logs.CreateExportTask.complete-section to docs.*.cloudwatch-logs.CreateExportTask.complete-section
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from before-parameter-build.cloudsearchdomain.Search to before-parameter-build.cloudsearch-domain.Search
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Changing event name from docs.*.cloudsearchdomain.Search.complete-section to docs.*.cloudsearch-domain.Search.complete-section
+2020-02-16 09:35:58 [botocore.loaders] DEBUG: Loading JSON file: /root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/botocore/data/endpoints.json
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Event choose-service-name: calling handler <function handle_service_name_alias at 0x7f7cd48e1830>
+2020-02-16 09:35:58 [botocore.loaders] DEBUG: Loading JSON file: /root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/botocore/data/s3/2006-03-01/service-2.json
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Event creating-client-class.s3: calling handler <function add_generate_presigned_post at 0x7f7cd48d37a0>
+2020-02-16 09:35:58 [botocore.hooks] DEBUG: Event creating-client-class.s3: calling handler <function add_generate_presigned_url at 0x7f7cd48d3560>
+2020-02-16 09:35:58 [botocore.endpoint] DEBUG: Setting s3 timeout as (60, 60)
+2020-02-16 09:35:58 [botocore.loaders] DEBUG: Loading JSON file: /root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/botocore/data/_retry.json
+2020-02-16 09:35:58 [botocore.client] DEBUG: Registering retry handlers for service: s3
+2020-02-16 09:35:58 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrapy.pipelines.images.ImagesPipeline',
+ 'scrapy_app.pipelines.ScrapyAppPipeline']
+2020-02-16 09:35:58 [scrapy.core.engine] INFO: Spider opened
+2020-02-16 09:35:58 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-02-16 09:35:58 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-02-16 09:35:58 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/core/engine.py", line 127, in _next_request
+    request = next(slot.start_requests)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/spiders/__init__.py", line 73, in start_requests
+    yield Request(url, dont_filter=True)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/http/request/__init__.py", line 26, in __init__
+    self._set_url(url)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/http/request/__init__.py", line 64, in _set_url
+    raise TypeError('Request url must be str or unicode, got %s:' % type(url).__name__)
+TypeError: Request url must be str or unicode, got NoneType:
+2020-02-16 09:35:58 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-02-16 09:35:58 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'elapsed_time_seconds': 0.044909,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 2, 16, 9, 35, 58, 551365),
+ 'log_count/DEBUG': 19,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 87293952,
+ 'memusage/startup': 87293952,
+ 'start_time': datetime.datetime(2020, 2, 16, 9, 35, 58, 506456)}
+2020-02-16 09:35:58 [scrapy.core.engine] INFO: Spider closed (finished)

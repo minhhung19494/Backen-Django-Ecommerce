@@ -1,0 +1,21 @@
+2020-02-16 09:18:07 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: scrapy_app)
+2020-02-16 09:18:07 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.7.5 (default, Oct 27 2019, 15:43:29) - [GCC 9.2.1 20191022], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Linux-5.3.0-kali2-amd64-x86_64-with-debian-kali-rolling
+2020-02-16 09:18:07 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrapy_app', 'IMAGES_STORE_S3_ACL': 'public-read', 'LOG_FILE': 'logs/default/icrawler/3d678bbe509d11eabc3889fb27362fa6.log', 'NEWSPIDER_MODULE': 'scrapy_app.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['scrapy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'}
+2020-02-16 09:18:07 [scrapy.extensions.telnet] INFO: Telnet Password: 297d2c291625a77d
+2020-02-16 09:18:07 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-02-16 09:18:07 [twisted] CRITICAL: Unhandled error in Deferred:
+2020-02-16 09:18:07 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/crawler.py", line 85, in crawl
+    self.spider = self._create_spider(*args, **kwargs)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/crawler.py", line 108, in _create_spider
+    return self.spidercls.from_crawler(self, *args, **kwargs)
+  File "/root/SourceCode/Python/django-react-ecommerce-app/env/lib/python3.7/site-packages/scrapy/spiders/__init__.py", line 50, in from_crawler
+    spider = cls(*args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument '_job'
