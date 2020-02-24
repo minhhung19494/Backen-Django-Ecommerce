@@ -9,19 +9,7 @@ from scrapy.crawler import CrawlerProcess
 
 class ProductCrawler(scrapy.Spider):
     name = 'icrawler'
-    # allowed_domains = ['https://bitis.com.vn/']
     start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
-
-    # def __init__(self, *args, **kwargs):
-    #     # self.url = kwargs.get('url')
-    #     # self.domain = kwargs.get('domain')
-    #     self.start_urls = ['https://bitis.com.vn/collections/hunter-nam/']
-    #     # self.allowed_domains = [self.domain]
-
-    #     ProductCrawler.rules = [
-    #         Rule(LinkExtractor(unique=True), callback='parse'),
-    #     ]
-    #     super(ProductCrawler, self).__init__(*args, **kwargs)
 
     def parse(self, response):
 
@@ -34,13 +22,6 @@ class ProductCrawler(scrapy.Spider):
                 callback= self.parseDetailPage
             )
 
-        # detailPages2 = response.css('h3.product_name a::attr(href)').getall()
-        # for page2 in detailPages2[2:3]: 
-        #     yield scrapy.Request(
-        #         response.urljoin(page2),
-        #         callback= self.parseDescription
-        #     ) 
-
         next_page = response.css('div#pagination a.next::attr(href)').get()
         if next_page is not None:
             next_page = response.urljoin(next_page)
@@ -49,7 +30,7 @@ class ProductCrawler(scrapy.Spider):
                 callback=self.parse
             )
 
-    def startProductLoader(self, response):#, productLoader):
+    def startProductLoader(self, response):
 
         productLoader = ItemLoader(item = Product(), response = response)
 
@@ -79,11 +60,4 @@ class ProductCrawler(scrapy.Spider):
         variationLoader.add_css('description','div.product-description-wrapper')
 
         return variationLoader.load_item()
-    def parseDescription(self, response):
-        descriptionLoader = ItemLoader(item = ProductDescription(), response = response)
-
-        descriptionLoader.add_css('itemName', 'div.product-info h1.name')
-        descriptionLoader.add_css('description', 'div.product-description-wrapper p')
-
-        return descriptionLoader.load_item()
 
